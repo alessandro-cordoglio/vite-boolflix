@@ -16,6 +16,11 @@ import CountryFlag from 'vue-country-flag-next'
                     return lang
                 }
             }
+        },
+        computed:{
+            vote(){
+                return Math.ceil(this.info.vote_average / 2)
+            }
         }
     }
 </script>
@@ -25,9 +30,9 @@ import CountryFlag from 'vue-country-flag-next'
         <h3>{{info.title}}</h3>
         <h4>{{info.original_title}}</h4>
         <country-flag :country="getFlag(info.original_language)" size='medium'/>
-        <h5>{{info.vote_average}}</h5>
-        <font-awesome-icon icon="fa-solid fa-star"/>
-        <font-awesome-icon icon="fa-regular fa-star"/>
+            <h5>{{vote}}</h5>
+            <font-awesome-icon v-for="n in vote" icon="fa-solid fa-star"/>
+            <font-awesome-icon v-for="n in 5 - vote" icon="fa-regular fa-star"/>
     </div>
 </template>
 
