@@ -11,7 +11,7 @@ import { store } from "../store";
 
 <template>
     <form @submit.prevent="$emit('performSearch')">
-        <input type="text" placeholder="fai una ricerca"  v-model="store.TextToSearch" required>
+        <input type="text" placeholder="fai una ricerca"  v-model="store.textToSearch" required>
         <button type="submit">Cerca</button>
     </form>
 </template>
