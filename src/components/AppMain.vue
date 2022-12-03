@@ -14,9 +14,14 @@ import { store } from "../store";
 </script>
 
 <template>
-    <div class="my_container">
-        <AppCard v-for="movie in store.movies" :info="movie"/>
-    </div>
+    <section>
+        <h2>MOVIES</h2>
+            <AppCard v-for="movie in store.movies" :info="movie"/>
+    </section>
+    <section>
+        <h2>SERIE TV</h2>
+            <AppCard v-for="tv in store.tv" :info="tv"/>
+    </section>
 </template>
 
 <style lang="scss" scoped>

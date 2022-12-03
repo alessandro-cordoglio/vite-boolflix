@@ -12,7 +12,9 @@ import CountryFlag from 'vue-country-flag-next'
                 if(lang=='en'){
                     return "us"
                 }
-                else{
+                else if(lang=='ja'){
+                    return "jp"
+                }else{
                     return lang
                 }
             }
@@ -27,8 +29,8 @@ import CountryFlag from 'vue-country-flag-next'
 
 <template>
     <div class="my_card debug_style">
-        <h3>{{info.title}}</h3>
-        <h4>{{info.original_title}}</h4>
+        <h3>{{(info.title || info.name)}}</h3>
+        <h4>{{(info.original_title || info.original_name)}}</h4>
         <country-flag :country="getFlag(info.original_language)" size='medium'/>
             <h5>{{vote}}</h5>
             <font-awesome-icon v-for="n in vote" icon="fa-solid fa-star"/>
@@ -38,7 +40,7 @@ import CountryFlag from 'vue-country-flag-next'
 
 <style lang="scss" scoped>
     .debug_style{
-        margin-top: 60px ;
+        margin-top: 40px ;
         max-width: max-content;
         border: 1px solid black;
         padding: 20px;
