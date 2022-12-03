@@ -29,12 +29,13 @@ import CountryFlag from 'vue-country-flag-next'
 
 <template>
     <div class="my_card debug_style">
+        <img :src="`https://image.tmdb.org/t/p/w342${info.poster_path}`" alt="">
         <h3>{{(info.title || info.name)}}</h3>
         <h4>{{(info.original_title || info.original_name)}}</h4>
         <country-flag :country="getFlag(info.original_language)" size='medium'/>
-            <h5>{{vote}}</h5>
-            <font-awesome-icon v-for="n in vote" icon="fa-solid fa-star"/>
-            <font-awesome-icon v-for="n in 5 - vote" icon="fa-regular fa-star"/>
+        <h5>{{vote}}</h5>
+        <font-awesome-icon v-for="n in vote" icon="fa-solid fa-star"/>
+        <font-awesome-icon v-for="n in 5 - vote" icon="fa-regular fa-star"/>
     </div>
 </template>
 
