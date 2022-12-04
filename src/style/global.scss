@@ -2,3 +2,13 @@
 IMPORT BOOTSTRAP
 ----------------*/
 @import "/node_modules/bootstrap/scss/bootstrap";
+
+/* LAYOUT */
+header{
+    background-color: black;
+    padding: 20px 15px 0px 15px;
+}
+main{
+    background-color: #434343;
+    
+}

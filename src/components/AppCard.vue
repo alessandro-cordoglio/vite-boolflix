@@ -28,22 +28,43 @@ import CountryFlag from 'vue-country-flag-next'
 </script>
 
 <template>
-    <div class="my_card debug_style">
-        <img :src="`https://image.tmdb.org/t/p/w342${info.poster_path}`" alt="">
-        <h3>{{(info.title || info.name)}}</h3>
-        <h4>{{(info.original_title || info.original_name)}}</h4>
-        <country-flag :country="getFlag(info.original_language)" size='medium'/>
-        <h5>{{vote}}</h5>
-        <font-awesome-icon v-for="n in vote" icon="fa-solid fa-star"/>
-        <font-awesome-icon v-for="n in 5 - vote" icon="fa-regular fa-star"/>
-    </div>
+        <div class="my_card">
+            <img :src="`https://image.tmdb.org/t/p/w342${info.poster_path}`" alt="">
+            <div class="card_info">
+                <div class="absolute">
+                    <h3>{{(info.title || info.name)}}</h3>
+                    <h4>{{(info.original_title || info.original_name)}}</h4>
+                    LANGUAGE: <country-flag :country="getFlag(info.original_language)" size='medium'/>
+                    <h5>VOTO: {{vote}}</h5>
+                    <font-awesome-icon v-for="n in vote" icon="fa-solid fa-star"/>
+                    <font-awesome-icon v-for="n in 5 - vote" icon="fa-regular fa-star"/>
+                </div>
+            </div>
+        </div>
 </template>
 
 <style lang="scss" scoped>
-    .debug_style{
-        margin-top: 40px ;
-        max-width: max-content;
-        border: 1px solid black;
-        padding: 20px;
+    .card_info{
+        display: none;
+        position: relative;
+        .absolute{
+            position: absolute;
+            height: 100%;
+            color: white;
+            bottom: 470px;
+            padding: 20px;
+        }
+    }
+    .my_card{
+        img{
+            height: 100%;
+            object-fit: cover;
+        }
+        &:hover .card_info{
+            display: block;
+        }
+        &:hover img{
+            filter: brightness(0.2);
+        }
     }
 </style>
