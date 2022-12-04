@@ -43,7 +43,7 @@ import { store } from "../store";
             background-color: rgba(187, 25, 25, 0.842);
             padding: 20px;
             h2{
-                font-size: 45px;
+                font-size: 40px;
             }
         }
         
